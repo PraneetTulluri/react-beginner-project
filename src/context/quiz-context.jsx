@@ -3,33 +3,49 @@ import React, { createContext, useState } from "react";
 // Create a Context for the quiz
 export const QuizContext = createContext();
 
-// QuizProvider component wraps our app and provides quiz state and methods
 export const QuizProvider = ({ children }) => {
-  // Sample quiz questions stored as an array of objects
   const quizData = [
     {
-      question: "What is the capital of France?",
-      options: ["Berlin", "London", "Paris", "Rome"],
-      answer: "Paris",
+      question: "How many rizzlers can a Sigma grind before touching grass?",
+      options: ["0", "3", "Infinite", "Only on Wednesdays"],
+      answer: "Infinite",
     },
     {
-      question: "Which language is used for web apps?",
-      options: ["PHP", "Python", "Javascript", "All"],
-      answer: "All",
+      question: "What is the national animal of Ohio?",
+      options: ["Crocodile", "Shrek", "Ford F-150", "Giant Eagle"],
+      answer: "Shrek",
     },
     {
-      question: "Who is the current CEO of Tesla?",
-      options: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Tony Stark"],
-      answer: "Elon Musk",
+      question: "What’s the scientific name for a Skibidi Toilet?",
+      options: ["Toiletus Sigma", "Plumbus Maximus", "Gigachadius Porcelainus", "Flushy McFlushface"],
+      answer: "Gigachadius Porcelainus",
+    },
+    {
+      question: "If NPC walks into a wall for 5 minutes, what do you do?",
+      options: ["Join them", "Call tech support", "Hit alt+F4", "Record for TikTok"],
+      answer: "Record for TikTok",
+    },
+    {
+      question: "What sound does the average Discord mod make?",
+      options: ["Oink", "Meow", "Breathing heavily into mic", "Rizz Rizz Rizz"],
+      answer: "Breathing heavily into mic",
+    },
+    {
+      question: "What is 2 + 2?",
+      options: ["4", "Fish", "Ohio", "Yes"],
+      answer: "Yes",
+    },
+    {
+      question: "What is the only cure for being cringe?",
+      options: ["Stop", "Become based", "Touch grass", "Eat 47 hotdogs"],
+      answer: "Touch grass",
     },
   ];
 
-  // Initialize userAnswers as an array with a null value for each question
   const initialAnswers = quizData.map(() => null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(initialAnswers);
 
-  // Function to update the answer for a given question index
   const setAnswerForQuestion = (index, answer) => {
     setUserAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
@@ -38,7 +54,6 @@ export const QuizProvider = ({ children }) => {
     });
   };
 
-  // Reset function to restart the quiz
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setUserAnswers(quizData.map(() => null));
